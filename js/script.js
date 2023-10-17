@@ -47,35 +47,35 @@ class Calculator {
 
   resolution() {
   
-    let upperValueArray = (this.upperValue.textContent).split(" ");
+    let upperValueArr = (this.upperValue.textContent).split(" ");
     let result = 0;
 
-    for(let i = 0; i <= upperValueArray.length; i++) {
+    for(let i = 0; i <= upperValueArr.length; i++) {
 
       let operation = 0;
-      let actualItem = upperValueArray[i];
+      let actualItem = upperValueArr[i];
 
       if(actualItem == "x") {
-        result = calc.multiplication(upperValueArray[i - 1], upperValueArray[i + 1]);
+        result = calc.multiplication(upperValueArr[i - 1], upperValueArr[i + 1]);
         operation = 1;
       } else if(actualItem == "/") {
-        result = calc.division(upperValueArray[i - 1], upperValueArray[i + 1]);
+        result = calc.division(upperValueArr[i - 1], upperValueArr[i + 1]);
         operation = 1;
-      } else if(!upperValueArray.includes('x') && !upperValueArray.includes('/')) {
+      } else if(!upperValueArr.includes('x') && !upperValueArr.includes('/')) {
         if(actualItem == "+") {
-          result = calc.sum(upperValueArray[i - 1], upperValueArray[i + 1]);
+          result = calc.sum(upperValueArr[i - 1], upperValueArr[i + 1]);
           operation = 1;
         } else if(actualItem == "-") {
-          result = calc.subtraction(upperValueArray[i - 1], upperValueArray[i + 1]);
+          result = calc.subtraction(upperValueArr[i - 1], upperValueArr[i + 1]);
           operation = 1;
         }
       }
 
       if(operation) {
         // indice anterior no resultado da operação
-        upperValueArray[i - 1] = result;
+        upperValueArr[i - 1] = result;
         // remove os itens já utilizado para a operação
-        upperValueArray.splice(i, 2);
+        upperValueArr.splice(i, 2);
         // atualizar o valor do índice
         i = 0;
       }
