@@ -1,2 +1,3 @@
 # calculatorProject
-Development of a calculator in javascript using OOP
+Project designed to consolidate knowledge obtained in an object-oriented programming course
+
