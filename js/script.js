@@ -11,8 +11,28 @@ class Calculator {
     this.resultValue.textContent = '0';
   }
 
-  checkLastDigit(input, upperValue, reg) {
+  sum(n1, n2) {
+    return parseFloat(n1) + parseFloat(n2)
+  }
+  
+  subtraction(n1, n2) {
+    return parseFloat(n1) - parseFloat(n2)
+  }
+  
+  multiplication(n1, n2) {
+    return parseFloat(n1) * parseFloat(n2)
+  }
+  
+  division(n1, n2) {
+    return parseFloat(n1) / parseFloat(n2)
+  }
+  
+  refreshValues(total) {
+    this.upperValue.textContent = total;
+    this.resultValue.textContent = total;
+  }
 
+  checkLastDigit(input, upperValue, reg) {
     if((
       !reg.test(input) &&
       !reg.test(upperValue.substr(upperValue.length - 1))
@@ -21,28 +41,6 @@ class Calculator {
     } else {
       return false;
     }
-
-  }
-
-  sum(n1, n2) {
-    return parseFloat(n1) + parseFloat(n2)
-  }
-
-  subtraction(n1, n2) {
-    return parseFloat(n1) - parseFloat(n2)
-  }
-
-  multiplication(n1, n2) {
-    return parseFloat(n1) * parseFloat(n2)
-  }
-
-  division(n1, n2) {
-    return parseFloat(n1) / parseFloat(n2)
-  }
-
-  refreshValues(total) {
-    this.upperValue.textContent = total;
-    this.resultValue.textContent = total;
   }
 
   resolution() {
@@ -72,11 +70,8 @@ class Calculator {
       }
 
       if(operation) {
-        // indice anterior no resultado da operação
         upperValueArr[i - 1] = result;
-        // remove os itens já utilizado para a operação
         upperValueArr.splice(i, 2);
-        // atualizar o valor do índice
         i = 0;
       }
 
@@ -90,8 +85,7 @@ class Calculator {
 
   }
 
-  btnPress() {
-  
+  btnClick() {
     let input = this.textContent;
     let upperValue = calc.upperValue.textContent;
     var reg = new RegExp('^\\d+$');
@@ -112,12 +106,10 @@ class Calculator {
 
     } else {
 
-      // checa se precisa adicionar ou não
       if(calc.checkLastDigit(input, upperValue, reg)) {
         return false;
       }
 
-      // adiciona espaços aos operadores
       if(!reg.test(input)) {
         input = ` ${input} `;
       }
@@ -136,13 +128,10 @@ class Calculator {
 
 }
 
-// start obj
 let calc = new Calculator;
 
-// start btns
 let buttons = document.querySelectorAll('.btn');
 
-// map all buttons
 for(let i = 0; buttons.length > i; i++) {
-  buttons[i].addEventListener('click', calc.btnPress);
+  buttons[i].addEventListener('click', calc.btnClick);
 }
