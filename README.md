@@ -4,5 +4,5 @@ Calculator design using an object-oriented programming ([OOP](https://developer.
 ## Chosen language
 The chosen language was [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) because it is a simple language and is compatible with all major browsers.
 
-## Demo Image
+## Project Image
 ![calculatorpic](https://github.com/PedroFK/calculatorProject/assets/137946119/d6047970-c2ee-4957-8e48-6804f86a5ae0)
